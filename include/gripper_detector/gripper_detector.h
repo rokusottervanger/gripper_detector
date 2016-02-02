@@ -9,6 +9,7 @@
 #include <visp/vpMbEdgeKltTracker.h>
 #include <visp/vpDetectorBase.h>
 #include <visp/vpDisplayOpenCV.h>
+#include <visp/vpKeyPoint.h>
 
 // TODO: Fixed a build error by hacking in /usr/include/SbBasic.h: added #include <Inventor/C/errors/debugerror.h>
 
@@ -29,8 +30,9 @@ public:
 
     rgbd::Client client_;
 
-    vpMbEdgeKltTracker* tracker_;
+    vpMbEdgeTracker* tracker_;
     vpDetectorBase *detector_;
+    vpKeyPoint* keypoint_learning_, *keypoint_detection_;
 
     vpImage<unsigned char> vp_image_gray_; // Create a gray level image container
     vpDisplayOpenCV d_;
